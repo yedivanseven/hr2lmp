@@ -38,4 +38,4 @@ test-suite hr2lmp-test
 
 source-repository head
   type:     git
-  location: https://github.com/githubuser/hr2lmp
+  location: https://github.com/yedivanseven/hr2lmp
