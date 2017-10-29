@@ -140,6 +140,22 @@ testPropContra3 bf = and [not (bf p q r) | p <- [True, False],
                                            q <- [True, False],
                                            r <- [True, False]]
 
+-- Exercise 2.16
+{-
+1. The equation x^2 + 1 = 0 does not have a solution.
+2. A largest naturak number does exist.
+3. The number 13 is not a prime number.
+4. The number n is not a prime number.
+5. There is only a finite number of primes.
+-}
+
+-- Ecercise 2.17
+{-
+x < y < z says that (x < y) and (y < z).
+Since not (P and Q) is equivalent to (not P) or (not Q), we have:
+x < y < z is equivalent to x >= y or y >= z
+-}
+
 -- Exercise 2.20
 test2201 = logEquiv2 (\ p q -> not p ==> q) (\ p q -> p ==> not q) --False
 test2202 = logEquiv2 (\ p q -> not p ==> q) (\ p q -> q ==> not p) --False
@@ -168,14 +184,7 @@ test2211 = truthTable2 formula2211
 There are 2^n, where n is the number of rows with n = 2^v,
 where v is the number of boolean variables.
 So in our case, we have v = 2, n = 4 and, thus, 16 Tables
--}
--- 3.
-allProps :: [String]
-allProps = [p ++ " P " ++ op ++ q ++ " Q " | p <- ["   ", "not"],
-                                             q <- ["   ", "not"],
-                                             op <- [" and ", " or "]]
-
-{-}
-4.
-The elementary operations are &&, ||, not, and the identity.
+3. Probably.
+4 - 5.
+The matter is one of finding proper basis vectors and combining them.
 -}

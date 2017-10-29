@@ -12,4 +12,4 @@ pen-and-paper, mathematical exercises are *not* provided.
 All (working) examples, solutions to all exercises, and some playing around.
 
 ## Chapter 2
-Work in progress ...
+All examples and solutions to all exercises.
