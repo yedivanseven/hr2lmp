@@ -1,13 +1,13 @@
 name:                hr2lmp
 version:             0.1.0.0
--- synopsis:         Examples and Exercises for: The Haskell Road to Logic, Math and Programming
+-- synopsis:
 -- description:
 homepage:            https://github.com/yedivanseven/hr2lmp#readme
 license:             BSD3
 license-file:        LICENSE
 author:              Georg Heimel
 maintainer:          georg@muckisnspirit.com
-copyright:           2017 Georg Heimel
+copyright:           Georg Heimel
 category:            Web
 build-type:          Simple
 extra-source-files:  README.md
