@@ -186,5 +186,5 @@ where v is the number of boolean variables.
 So in our case, we have v = 2, n = 4 and, thus, 16 Tables
 3. Probably.
 4 - 5.
-The matter is one of finding proper basis vectors and combining them.
+Write everything in disjunct normal form.
 -}
