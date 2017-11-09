@@ -188,3 +188,110 @@ So in our case, we have v = 2, n = 4 and, thus, 16 Tables
 4 - 5.
 Write everything in disjunct normal form.
 -}
+
+-- Intermezzo
+square1 :: Integer -> Integer
+square1 x = x^2
+
+square2 :: Integer -> Integer
+square2 = \ x -> x^2
+
+m1 :: Integer -> Integer -> Integer
+m1 = \ x -> \ y -> x*y
+
+m2 :: Integer -> Integer -> Integer
+m2 = \ x y -> x*y
+
+m2' :: (Integer, Integer) -> Integer
+m2' = \ (x, y) -> x*y
+
+solvQdr :: (Float, Float, Float) -> (Float, Float)
+solvQdr = \ (a, b, c) -> if a == 0 then error "not quadratic"
+                         else let d = b^2 - 4*a*c in
+                           if d < 0 then error "no real solutions"
+                         else ((-b + sqrt d)/ 2*a, (-b - sqrt d)/ 2*a)
+
+solvQdr' :: (Float, Float, Float) -> (Float, Float)
+solvQdr' (a, b, c)
+                | a == 0    = error "non quadratic"
+                | d < 0     = error "no real solutions"
+                | otherwise = ((-b + sqrt d) / 2*a, (-b - sqrt d) / 2*a)
+                where d = b^2 - 4*a*c
+
+solvQdr2 :: (Float, Float, Float) -> (Float, Float)
+solvQdr2 = \ (a, b, c) -> let d = b^2 - 4*a*c
+                          in case () of
+                                  _ | a == 0    -> error "not quadratic"
+                                    | d < 0     -> error "no real solution"
+                                    | otherwise -> ((-b + sqrt d) / 2*a,
+                                                    (-b - sqrt d) / 2*a)
+
+solvQdr3 :: (Float, Float, Float) -> (Float, Float)
+solvQdr3 (a, b, c) = let d = b^2 - 4*a*c
+                     in case () of
+                       _ | a == 0    -> error "not quadratic"
+                         | d < 0     -> error "no real solution"
+                         | otherwise -> ((-b + sqrt d) / 2*a,
+                                         (-b - sqrt d) / 2*a)
+
+{- Exercise 2.37
+1.a False
+1.b False
+1.c False
+1.d False
+1.e False
+1.f False
+2.a True
+2.b False
+2.c True
+2.d False
+2.e False
+2.f False
+3.a False
+3.b False
+3.c False
+3.d False
+3.e False
+3.f False
+4.a True
+4.b False
+4.c False
+4.d False
+4.e False
+4.f False
+5.a True
+5.b False
+5.c False
+5.d False
+5.e False
+5.f False
+-}
+
+{-
+a.1 for no x
+a.2 x arbitray
+a.3 for no x
+a.4 x = 0
+a.5 x arbitray
+b.1 for no x
+b.2 for all x > 0
+b.3 for no x
+b.4 for no x
+b.5 for x > 0
+c.1 for no x
+c.2 x arbitrary
+c.3 for no x
+c.4 for no x
+c.5 for no x
+d.1 for no x
+d.2 for all x >= 0
+d.3 for no x
+d.4 for no x
+d.5 for all x > 0 and x != 1
+e.1 for no x
+e.2 for all fathers
+e.3 for no x
+e.4 for no x
+e.5 for all fathers, who do not have children with their daughters
+f is rather subjective ...
+-}
