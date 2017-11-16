@@ -295,3 +295,28 @@ e.4 for no x
 e.5 for all fathers, who do not have children with their daughters
 f is rather subjective ...
 -}
+
+-- Intermezzo
+any', all' :: (a -> Bool) -> [a] -> Bool
+any' p = or . map p
+all' p = and . map p
+
+every, some :: [a] -> (a -> Bool) -> Bool
+every xs p = all p xs
+some  xs p = any p xs
+
+unique :: (a -> Bool) -> [a] -> Bool
+unique p [x]    = p x
+unique p (x:xs) = p x <+> unique p xs
+
+parity :: [Bool] -> Bool
+parity [x, y] = x == y
+parity (x:xs) = x == not (parity xs)
+
+evenNR :: (a -> Bool) -> [a] -> Bool
+evenNR p = parity . map p
+
+parity' :: [Bool] -> Bool
+parity' xs     | not (or xs) = False
+parity' [x, y] = x == y
+parity' (x:xs) = x == not (parity' xs)
