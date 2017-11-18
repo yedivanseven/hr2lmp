@@ -306,17 +306,21 @@ every xs p = all p xs
 some  xs p = any p xs
 
 unique :: (a -> Bool) -> [a] -> Bool
+unique p []     = error "cannot operate on empy list"
 unique p [x]    = p x
-unique p (x:xs) = p x <+> unique p xs
+unique p (x:xs) | not (p x) && any p xs = unique p xs
+                | otherwise             = p x && not (any p xs)
 
 parity :: [Bool] -> Bool
-parity [x, y] = x == y
+parity []     = error "cannot operate on empty list"
+parity [x]    = not x
 parity (x:xs) = x == not (parity xs)
 
 evenNR :: (a -> Bool) -> [a] -> Bool
 evenNR p = parity . map p
 
 parity' :: [Bool] -> Bool
-parity' xs     | not (or xs) = False
-parity' [x, y] = x == y
-parity' (x:xs) = x == not (parity' xs)
+parity' []     = error "cannot operate on empty list"
+parity' [x]    = False
+parity' (x:xs) | not (or (x:xs)) = False
+               | otherwise       = x == not (parity' xs)
