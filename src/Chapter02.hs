@@ -318,9 +318,3 @@ parity (x:xs) = x == not (parity xs)
 
 evenNR :: (a -> Bool) -> [a] -> Bool
 evenNR p = parity . map p
-
-parity' :: [Bool] -> Bool
-parity' []     = error "cannot operate on empty list"
-parity' [x]    = False
-parity' (x:xs) | not (or (x:xs)) = False
-               | otherwise       = x == not (parity' xs)
