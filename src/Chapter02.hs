@@ -305,16 +305,35 @@ every, some :: [a] -> (a -> Bool) -> Bool
 every xs p = all p xs
 some  xs p = any p xs
 
+
+-- Exercise 2.51
 unique :: (a -> Bool) -> [a] -> Bool
 unique p []     = error "cannot operate on empy list"
 unique p [x]    = p x
 unique p (x:xs) | not (p x) && any p xs = unique p xs
                 | otherwise             = p x && not (any p xs)
 
+unique' :: (a -> Bool) -> [a] -> Bool
+unique' p [] = error "cannot operate on empy list"
+unique' p xs = length (filter p xs) == 1
+
+{- The canonical way proposed in the book does not work because the equal
+sign in "Expressing uniqueness" on page 57 would mean comparing indices of
+list elements, which is beside the point here -}
+
+-- Exercise 2.52
 parity :: [Bool] -> Bool
 parity []     = error "cannot operate on empty list"
 parity [x]    = not x
 parity (x:xs) = x == not (parity xs)
 
+parity' :: [Bool] -> Bool
+parity' [] = error "cannot operate on empty list"
+parity' xs = length (filter ( == True) xs) == 1
+
+-- Exercise 2.53
 evenNR :: (a -> Bool) -> [a] -> Bool
 evenNR p = parity . map p
+
+evenNR' :: (a -> Bool) -> [a] -> Bool
+evenNR' p = parity' . map p
