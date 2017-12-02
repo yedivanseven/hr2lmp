@@ -16,3 +16,6 @@ All (working) examples, solutions to all exercises, and some playing around.
 
 ## Chapter 2
 All examples and solutions to all coding exercises.
+
+## Chapter 3
+Some stuff done and tried ...
