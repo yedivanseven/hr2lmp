@@ -36,12 +36,12 @@ oddsFrom3 = 3 : map (+2) oddsFrom3
 
 
 -- Exercise 3.39
-
+examples = [take n primes | n <- [0..], not (prime (product (take n primes) + 1)) ]
 
 -- Intermezzo
-mersenne = [ (p, 2^p - 1) | p <- primes, prime (2^p - 1)]
+mersenne = [ (p, 2^p - 1) | p <- primes, prime (2^p - 1) ]
 
-notMersenne = [ (p, 2^p - 1) | p <- primes, not (prime (2^p - 1))]
+notMersenne = [ (p, 2^p - 1) | p <- primes, not (prime (2^p - 1)) ]
 
 -- Exercise 3.41
 pdivisors :: Integer -> [Integer]
